@@ -22,7 +22,7 @@ module.exports.TflAPI = class tflAPI {
     }
 
     makeRequest(endpoint, queries) {
-        let options = {
+        const options = {
             uri: "https://api.tfl.gov.uk" + endpoint,
             qs: {
                 app_key: this.AppKey,
@@ -40,7 +40,7 @@ module.exports.TflAPI = class tflAPI {
 
 module.exports.LocationAPI = class locationAPI {
     makeRequest(endpoint) {
-        let options = {
+        const options = {
             uri: "https://api.postcodes.io/postcodes" + endpoint,
             headers: {
                 "User-Agent": "Request-Promise"

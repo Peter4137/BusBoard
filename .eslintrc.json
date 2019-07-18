@@ -28,6 +28,7 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "prefer-const": 2
     }
 }
