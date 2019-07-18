@@ -11,22 +11,11 @@ module.exports.TflAPI = class tflAPI {
     }
 
     getStopsNearby(lat, lon){
-        const queries = {"stopTypes" : [
-            // "NaptanBusCoachStation",
-            // "NaptanBusWayPoint",
-            // "NaptanCoachAccessArea",
-            // "NaptanCoachBay",
-            // "NaptanCoachEntrance",
-            // "NaptanCoachServiceCoverage",
-            // "NaptanCoachVariableBay",
-            // "NaptanOnstreetBusCoachStopCluster",
-            // "NaptanOnstreetBusCoachStopPair",
-            // "NaptanPrivateBusCoachTram",
-            "NaptanPublicBusCoachTram",
-        ].join(","),
-        "radius": "500",
-        lat,
-        lon
+        const queries = {
+            "stopTypes" : "NaptanPublicBusCoachTram",
+            "radius": "500",
+            lat,
+            lon
         };
         const endpoint = "/StopPoint";
         return this.makeRequest(endpoint, queries);
@@ -65,17 +54,3 @@ module.exports.LocationAPI = class locationAPI {
         return this.makeRequest("/" + postcode);
     }
 };
-
-
-
-// class BusStop {
-//     constructor() {
-//         this.nextBuses = this.getBuses()
-//     }
-
-//     getBuses(){
-
-//         return
-//     }
-// }
-
