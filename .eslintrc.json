@@ -30,5 +30,10 @@
             "always"
         ],
         "prefer-const": 2
-    }
+    },
+    "overrides": [
+        {
+            "files": "/frontend/*"
+        }
+    ]
 }

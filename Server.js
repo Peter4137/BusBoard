@@ -10,6 +10,7 @@ module.exports = class Server {
         app.get("/departureBoards", this.getDepatureBoards);
         app.listen(port, () => console.log("Started BusBoard - go to website to view local buses"));        
         app.use(express.static("frontend"));
+        app.use("/angry", express.static("frontend/angryPage.html"));
     }
 
     async getDepatureBoards (input,res) {
@@ -39,8 +40,8 @@ module.exports = class Server {
 
 async function getTableData(closestStopCode) {
     const tableData = await handler.getTimeData(closestStopCode.id); 
-    console.log("Next buses for: "+closestStopCode.name);
-    console.table(tableData);
+    //console.log("Next buses for: "+closestStopCode.name);
+    //console.table(tableData);
     const dict = {
         "name" : closestStopCode.name,
         "times" : tableData
