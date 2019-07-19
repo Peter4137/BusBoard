@@ -50,7 +50,8 @@ module.exports.LocationAPI = class locationAPI {
         return requestPromise(options);
     }
 
-    async getCoordinates(postcode) {
+    getCoordinates(postcode) {
         return this.makeRequest("/" + postcode);
     }
 };
+
