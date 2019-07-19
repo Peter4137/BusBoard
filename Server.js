@@ -17,11 +17,13 @@ module.exports = class Server {
         try {
             closestStopCodes = await handler.getStopCodesFromPostcode(input.query.postcode, 2);
         }catch (err){
-            res.send(`${err.error.status}: ${err.error.error}`);
+            res.status(err.error.status);
+            res.send(err.error.error);
             return;
         }
         const promisesArray = [];
         if (closestStopCodes.length === 0){
+            res.status(404);
             res.send("No bus stops here!");
             return;
         }
@@ -39,7 +41,9 @@ async function getTableData(closestStopCode) {
     const tableData = await handler.getTimeData(closestStopCode.id); 
     console.log("Next buses for: "+closestStopCode.name);
     console.table(tableData);
-    const dict = {};
-    dict[closestStopCode.name] = tableData;
+    const dict = {
+        "name" : closestStopCode.name,
+        "times" : tableData
+    };
     return dict;
 }
