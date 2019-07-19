@@ -33,7 +33,10 @@
     },
     "overrides": [
         {
-            "files": "/frontend/*"
+            "files": "./frontend/*",
+            "rules" : {
+                "no-unused-vars" : 0
+            }   
         }
     ]
 }

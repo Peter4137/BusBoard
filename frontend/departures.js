@@ -13,32 +13,38 @@ function getDepartureBoards(postcode) {
         else{
             const data = JSON.parse(xhttp.response);
             newHtml += "<h2>Results</h2>\n";
-            data.forEach(element => {
-                newHtml += `<h3>${element.name}</h3>\n`;
-                newHtml += "<table>\n";
-                newHtml += "<tr>\n";
-                newHtml += "<th>Route</th>\n";
-                newHtml += "<th>Destination</th>\n";
-                newHtml += "<th>Expected (mins)</th>\n";            
-                newHtml += "</tr>\n";
-                element.times.forEach(item => {
-                    newHtml += "<tr>\n";
-                    newHtml += `<th>${item["Route"]}</th>\n`;                
-                    newHtml += `<th>${item["Destination"]}</th>\n`;
-                    newHtml += `<th>${item["Expected (mins)"]}</th>\n`;
-                    newHtml += "</tr>\n";
-                });
-                newHtml += "</table>\n";
-            });
+            data.forEach(element => newHtml += getTableForStop(element));
         }
         document.getElementById("results").innerHTML = newHtml;
     };
     xhttp.send();
 }
 
+let intervalRunning;
+
 function getDepartureBoardsOnRepeat(postcode) {
+    clearInterval(intervalRunning);
     getDepartureBoards(postcode);
-    setInterval( () => {
+    intervalRunning = setInterval( () => {
         getDepartureBoards(postcode);
     }, 30000);
+}
+
+function getTableForStop(stop){
+    let tableHTML = `<h3>${stop.name}</h3>\n
+                <table>\n
+                <tr>\n
+                <th>Route</th>\n
+                <th>Destination</th>\n
+                <th>Expected (mins)</th>\n
+                </tr>\n`;
+    stop.times.forEach(item => {
+        tableHTML += `<tr>\n
+                    <th>${item["Route"]}</th>\n               
+                    <th>${item["Destination"]}</th>\n
+                    <th>${item["Expected (mins)"]}</th>\n
+                    </tr>\n`;
+    });
+    tableHTML += "</table>\n";
+    return tableHTML;
 }
