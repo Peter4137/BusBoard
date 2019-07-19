@@ -1,0 +1,144 @@
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    background: black
+  }
+  .header {
+    background: url(https://redcloud.agency/wp-content/uploads/2018/11/London-city-taxi-1.png) no-repeat center center; 
+    background-size: cover;
+    height: 200px;
+    text-align: left;
+  }
+  
+  .header h1 {
+    color: #000000;
+    line-height: 100px; 
+    font-size: 80px;
+    margin-top: 0;
+    margin-bottom: 80px;
+    text-transform: uppercase; 
+    margin-left: 500px;
+  }
+  
+  @media (min-width:850px) {
+    .header h1 {
+      font-size: 120px;
+    }
+  }
+  
+  .btn {
+    color: #000000;
+    background: #b31111;
+    padding: 10px 40px;
+    text-decoration: none; 
+    transition: background .5s; 
+  }
+  
+  .btn:hover, .nav ul li:hover {
+    background: rgb(255, 0, 0);
+    cursor: pointer; 
+    transition: background .5s;  
+  }
+
+  .input {
+    padding: 30px;
+    color: red;
+  }
+
+  .transparent {
+      background: 0%;
+      border-color:red;
+      color:white;
+  }
+  
+  .main .container {
+    margin: 80px auto;
+  }
+  
+  .main img {
+    float: left;
+    margin: 50px 80px 50px 0;
+  }
+  
+  .jumbotron {
+    height: 600px; 
+    color: rgb(255, 0, 0);
+    background-color: transparent
+  }
+  
+  .background {
+    background: url(http://knowledgeoflondon.com/images/harrods1.jpg) center center;
+    background-size: cover;
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
+  
+
+  .jumbotron .container {
+    position: relative;
+    top: 220px;
+  }
+  
+  .jumbotron h2{
+    color: rgb(255, 0, 0);
+    text-align: center; 
+    opacity: 1;
+  }
+
+  .jumbotron h3{
+    color: rgb(255, 0, 0);
+    text-align: left; 
+    opacity: 1;
+  }
+
+  .jumbotron table {
+      text-align:  center
+  }
+  
+  .jumbotron p {
+    color: #fff; 
+    text-align: center; 
+  }
+  
+  .footer { 
+    background: #000;
+    height: 80px; 
+    padding-bottom: 50px;
+  }
+  
+    .footer a { 
+        color: red;
+}
+
+  .footer p { 
+    color: #fff;
+    font-size: 14px;  
+    height: 80px; 
+    line-height: 80px;
+    margin: 0;  
+  }
+  
+  @media (max-width: 500px) {
+    .header h1 {
+      font-size: 50px;
+      line-height: 64px;
+    }
+  
+    .main, .jumbotron {
+      padding: 0 30px;
+    }
+  
+    .main img {
+      width: 100%;
+    }
+  }

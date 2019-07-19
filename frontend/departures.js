@@ -12,10 +12,10 @@ function getDepartureBoards(postcode) {
         }
         else{
             const data = JSON.parse(xhttp.response);
-            newHtml += "<h2>Results</h2>\n";
+            newHtml += "<h2>Results</h2>\n<div class=\"row\">";
             data.forEach(element => newHtml += getTableForStop(element));
         }
-        document.getElementById("results").innerHTML = newHtml;
+        document.getElementById("results").innerHTML = newHtml + "</div>";
     };
     xhttp.send();
 }
@@ -31,7 +31,7 @@ function getDepartureBoardsOnRepeat(postcode) {
 }
 
 function getTableForStop(stop){
-    let tableHTML = `<h3>${stop.name}</h3>\n
+    let tableHTML = `<div class="col-4 offset-2"><h3>${stop.name}</h3>\n
                 <table>\n
                 <tr>\n
                 <th>Route</th>\n
@@ -45,6 +45,6 @@ function getTableForStop(stop){
                     <th>${item["Expected (mins)"]}</th>\n
                     </tr>\n`;
     });
-    tableHTML += "</table>\n";
+    tableHTML += "</table></div>\n";
     return tableHTML;
 }
